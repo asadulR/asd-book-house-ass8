@@ -1,0 +1,10 @@
+.book-card img{
+    max-height: 270px;
+}
+
+.hovered-btn:hover {
+    background-color: tomato;
+}
+.hovered-btn{
+    background-color: skyblue;
+}

@@ -7,4 +7,5 @@
 }
 .hovered-btn{
     background-color: skyblue;
+    border-radius: 0px 0px 8px 8px;
 }

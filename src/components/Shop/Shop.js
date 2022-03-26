@@ -12,12 +12,20 @@ const Shop = () => {
     },[]);
 
     const [cart, setCart] = useState([]);
+    // console.log(cart)
 
     const handleAddToCart = (product) => {
-        console.log(product)
         const newCart = [...cart, product];
-        setCart(newCart)
+        setCart(newCart);
     }
+
+
+    const [randomBook, setRandomBook] = useState([])
+    function getRandomCart (list) {
+        const randomItem = list[Math.floor((Math.random()*list.length))];
+        setRandomBook(randomItem);
+    }
+    
     return (
         <div className='row mx-auto container'>
             <div className="products-container col-6 col-md-9">
@@ -34,9 +42,17 @@ const Shop = () => {
                 </Row>
             </div>
             <div className="products-cart col-6 col-md-3">
-                <h5 className='text-center my-4'>Selected Books {cart.length}</h5>
+                <h5 className='text-center my-4'>Selected Books</h5>
+                {
+                    cart.map((singleCart) => (
+                        <p key = {singleCart.id}>{singleCart.name}</p>
+                    ))
+
+                }
+                <button type='button' onClick={ () =>getRandomCart(cart)} data-bs-toggle="modal" data-bs-target="#exampleModal">CHOOSE ONE</button>
+                <h2>{randomBook.name}</h2>
+                </div>
             </div>
-        </div>
     );
 };
 

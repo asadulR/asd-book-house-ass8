@@ -4,14 +4,13 @@ import './Book.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
   import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 const Book = (props) => {
-    // console.log(props)
-
+    //  Destructuring 
     const {img, name, price, ratings} = props.product;
 
     const {handleAddToCart} = props;
    
     return (
-        <div className='book-card text-center'>
+        <div className='book-card text-center mb-4'>
             <img className='img-fluid' src={img} alt="" />
             <h5 className='mt-1 text-primary'>{name}</h5>
             <p className='m-0'>Price: ${price}</p>

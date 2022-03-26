@@ -35,7 +35,7 @@ const Shop = () => {
             <div className="products-container my-3 col-8 col-md-9">
                 <h2 className='text-center text-success my-5'>Choose Your Favourite Books</h2>
 
-                <Row xs={1} md={2} lg={3} className="g-4">
+                <Row xs={1} md={2} lg={3} className="g-2">
                     {
                         products.map(product => <Book 
                             key = {product.id}

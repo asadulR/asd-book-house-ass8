@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import Book from '../Book/Book';
-
+import './Shop.css'
 const Shop = () => {
     const [products, setProducts] = useState([]);
 
@@ -26,9 +26,13 @@ const Shop = () => {
         setRandomBook(randomItem);
     }
     
+
+    const removeCartItems = () => {
+        setCart([]);
+    }
     return (
         <div className='row mx-auto container'>
-            <div className="products-container col-6 col-md-9">
+            <div className="products-container my-3 col-8 col-md-9">
                 <h2 className='text-center text-success my-5'>Choose Your Favourite Books</h2>
 
                 <Row xs={1} md={2} lg={3} className="g-4">
@@ -41,16 +45,23 @@ const Shop = () => {
                     }
                 </Row>
             </div>
-            <div className="products-cart col-6 col-md-3">
-                <h5 className='text-center my-4'>Selected Books</h5>
+            <div className="products-cart col-4 col-md-3">
+                <h5 className='text-center fw-bold my-4 text-primary'>Selected Books</h5>
                 {
                     cart.map((singleCart) => (
-                        <p key = {singleCart.id}>{singleCart.name}</p>
+                        <p className='fw-bold' key = {singleCart.id}>{singleCart.name}</p>
                     ))
 
                 }
-                <button type='button' onClick={ () =>getRandomCart(cart)} data-bs-toggle="modal" data-bs-target="#exampleModal">CHOOSE ONE</button>
-                <h2>{randomBook.name}</h2>
+                    <div className="btn-area text-center">
+                        <button className='d-block mx-auto btn-success border-0 p-2 rounded' onClick={ () =>getRandomCart(cart)}>CHOOSE ONE</button>
+                        <button className='btn-danger border-0 p-2 rounded mt-2' onClick={ () =>removeCartItems()}>CHOOSE AGAIN</button>
+                    </div>
+                    <div className='randomItem mt-5 p-2 text-white'>
+                        <p className=' text-primary text-center fw-bold'>Random Book</p>
+                        <img className='img-fluid' src={randomBook.img} alt="" />
+                        <p>{randomBook.name}</p>
+                    </div>
                 </div>
             </div>
     );
